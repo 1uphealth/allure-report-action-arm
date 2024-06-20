@@ -5,8 +5,7 @@ ARG ALLURE_REPO=https://repo.maven.apache.org/maven2/io/qameta/allure/allure-com
 
 RUN echo $RELEASE && \
     dnf update && \
-    apk install bash wget unzip && \
-    rm -rf /var/cache/apk/*
+    dnf install bash wget unzip
 
 RUN wget --no-verbose -O /tmp/allure-$RELEASE.tgz $ALLURE_REPO/$RELEASE/allure-commandline-$RELEASE.tgz && \
     tar -xf /tmp/allure-$RELEASE.tgz && \
